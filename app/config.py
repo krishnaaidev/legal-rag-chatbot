@@ -1,16 +1,19 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from typing import Optional
 
 
 class Settings(BaseSettings):
     APP_NAME: str = "Legal RAG Chatbot"
     ENV: str = "development"
 
-    LLM_PROVIDER: str = "openai"
-    LLM_MODEL: str = "gpt-4o-mini"
-    OPENAI_API_KEY: str | None = None
+    LLM_PROVIDER: str = "groq"
+    LLM_MODEL: str = "openai/gpt-oss-120b"
+    GROQ_API_KEY: Optional[str] = None
+    OPENAI_API_KEY: Optional[str] = None
 
-    EMBEDDING_MODEL: str = "text-embedding-3-small"
+    EMBEDDING_MODEL: str = "all-MiniLM-L6-v2"
     VECTOR_DB: str = "chroma"
+    MAX_DISTANCE_THRESHOLD: float = 0.7
 
     DATA_DIR: str = "data"
     RAW_DATA_DIR: str = "data/raw"

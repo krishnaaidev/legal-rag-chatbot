@@ -1,13 +1,33 @@
-.venv/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.so
+.Python
+.venv/
+venv/
+env/
+
+# Environment / Secrets
 .env
+.env.local
 .streamlit/secrets.toml
 
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Data (keep folder structure, ignore contents)
 data/raw/*
 data/processed/*
 data/vectorstore/*
 
+# But keep .gitkeep so folders persist
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 !data/vectorstore/.gitkeep
+
+# ChromaDB local files
+*.sqlite3
+chroma.sqlite3
